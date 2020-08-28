@@ -11,10 +11,22 @@ export default function AddRoomScreen({navigation}) {
 
   const handleButtonPress = () => {
     if (roomName.length > 0) {
+      const joinedRoomMsg = `You have joined the room ${roomName}`;
       firestore()
         .collection('THREADS')
-        .add({name: roomName})
-        .then(() => {
+        .add({
+          name: roomName,
+          latestMessage: {
+            text: joinedRoomMsg,
+            createdAt: new Date().getTime(),
+          },
+        })
+        .then((docRef) => {
+          docRef.collection('MESSAGES').add({
+            text: joinedRoomMsg,
+            createdAt: new Date().getTime(),
+            system: true,
+          });
           navigation.navigate('Home');
         });
     }

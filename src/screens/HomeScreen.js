@@ -12,11 +12,15 @@ export default function HomeScreen({navigation}) {
   useEffect(() => {
     const unsubscribe = firestore()
       .collection('THREADS')
+      .orderBy('latestMessage.createdAt', 'desc')
       .onSnapshot((querySnapshot) => {
         const threadList = querySnapshot.docs.map((documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
             name: '', // give default
+            latestMessage: {
+              text: '',
+            },
             ...documentSnapshot.data(),
           };
         });
@@ -46,7 +50,9 @@ export default function HomeScreen({navigation}) {
             onPress={() => navigation.navigate('Room', {thread: item})}>
             <List.Item
               title={item.name}
-              description="Item description"
+              description={
+                item.latestMessage ? item.latestMessage.text : 'Description'
+              }
               titleNumberOfLines={1}
               titleStyle={styles.listTitle}
               descriptionStyle={styles.listDescription}
