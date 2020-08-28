@@ -12,11 +12,7 @@ export const AuthProvider = ({children}) => {
         user,
         setUser,
         login: async (email, password) => {
-          try {
-            await auth().signInWithEmailAndPassword(email, password);
-          } catch (e) {
-            console.log(e);
-          }
+          await auth().signInWithEmailAndPassword(email, password);
         },
         register: async (email, password) => {
           try {
