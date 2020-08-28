@@ -26,7 +26,7 @@ export default function Signup({navigation}) {
         onChangeText={(userPassword) => setPassword(userPassword)}
       />
       <FormButton
-        title="Singup"
+        title="Signup"
         modeValue="contained"
         labelStyle={styles.loginButtonLabel}
         onPress={() => register(email, password)}

@@ -10,9 +10,11 @@ import {IconButton} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 
 import {AuthContext} from '../navigation/AuthProvider';
+import useStatusBar from '../utils/useStatusBar';
 
 export default function RoomScreen({route}) {
   const [messages, setMessages] = useState([]);
+  useStatusBar('light-content');
   const {thread} = route.params;
   const {user} = useContext(AuthContext);
   const currentUser = user.toJSON();

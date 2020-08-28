@@ -3,11 +3,14 @@ import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {List, Divider} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 
+import useStatusBar from '../utils/useStatusBar';
 import Loading from '../components/Loading';
 
 export default function HomeScreen({navigation}) {
   const [threads, setThreads] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useStatusBar('light-content');
 
   useEffect(() => {
     const unsubscribe = firestore()
