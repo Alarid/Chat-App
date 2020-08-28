@@ -99,6 +99,9 @@ export default function RoomScreen({route}) {
         right: {
           backgroundColor: '#6646ee',
         },
+        left: {
+          backgroundColor: '#E7E7E7',
+        },
       }}
       textStyle={{
         right: {
@@ -149,6 +152,7 @@ export default function RoomScreen({route}) {
       showUserAvatar
       alwaysShowSend
       scrollToBottom
+      alignTop
     />
   );
 }

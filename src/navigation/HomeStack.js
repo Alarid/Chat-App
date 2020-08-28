@@ -21,7 +21,7 @@ function ChatApp() {
         },
         headerTintColor: '#ffffff',
         headerTitleStyle: {
-          fontSize: 22,
+          fontSize: 20,
         },
       }}>
       <ChatAppStack.Screen

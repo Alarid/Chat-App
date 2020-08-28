@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   listTitle: {
-    fontSize: 22,
+    fontSize: 18,
   },
   listDescription: {
-    fontSize: 16,
+    fontSize: 14,
   },
 });
